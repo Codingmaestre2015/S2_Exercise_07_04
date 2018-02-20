@@ -16,24 +16,19 @@
     <script>
         function calculatePay() {
             var payRate = 15;
-            numHours = 40;
+            var numHours = 40;
             var grossPay = payRate * numHours;
-            console.log("grossPay is " + grossPay);
+            alert(grossPay);
             var federalTaxes = grossPay * .06794;
             var stateTaxes = grossPay * .0476;
             var socialSecurity = grossPay * .062;
             var medicare = grossPay * .0145;
             var netPay = grossPay - federalTaxes;
-            console.log("grossPay minus federal taxes is " + netPay);
-            netPay *= stateTaxes;
-            console.log("netPay minus stateTaxes is " + netPay);
-            netPay *= socialSecurity;
-            console.log("netPay minus socialSecurity is " + netPay);
-            netPay *= medicare;
-            console.log("netPay minus medicare is " + netPay);
-            return netPay;
+            netPay -= stateTaxes;
+            netPay -= socialSecurity;
+            netPay -= medicare;
+            return Math.round(netPay);
         }
-        calculatePay();
     </script>
 </body>
 
